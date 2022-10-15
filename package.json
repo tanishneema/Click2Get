@@ -11,6 +11,9 @@
   "author": "Tanish Neema",
   "license": "ISC",
   "dependencies": {
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.9",
+    "@mui/styles": "^5.10.9",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
@@ -20,6 +23,8 @@
     "mongoose": "^6.6.1",
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.20",
-    "validator": "^13.7.0"
+    "react-redux": "^8.0.4",
+    "validator": "^13.7.0",
+    "webfontloader": "^1.6.28"
   }
 }
