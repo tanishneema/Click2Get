@@ -162,40 +162,39 @@
   margin-bottom: 4vmax;
 }
 
-.reviews{
+.reviews {
   display: flex;
   overflow: auto;
-
 }
 
-.reviewCard{
-  flex:none;
+.reviewCard {
+  flex: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(56, 56, 56, 0.1);
   width: 30vmax;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:1vmax;
-  padding:3vmax;
+  margin: 1vmax;
+  padding: 3vmax;
 }
 
-.reviewCard > img{
-  width:5vmax;
+.reviewCard > img {
+  width: 5vmax;
 }
 
-.reviewCard > p{
+.reviewCard > p {
   color: rgba(0, 0, 0, 0.8);
-  font:600 0.9vmax "Roboto";
+  font: 600 0.9vmax "Roboto";
 }
 
-.reviewCard > span{
-  color:rgba(0, 0, 0, 0.5);
-  font:300 0.8vmax cursive;
+.reviewCard > span {
+  color: rgba(0, 0, 0, 0.5);
+  font: 300 0.8vmax cursive;
 }
 
-.noReviews{
-  font:400 1.3vmax "Gill Sans";
+.noReviews {
+  font: 400 1.3vmax "Gill Sans";
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
 }
@@ -274,10 +273,18 @@
   }
 
   .submitReview {
-    font: 500 1.7vmax "Roboto";
+    font: 500 2vmax "Roboto";
     padding: 1.2vmax;
     margin: 3vmax 0;
     border-radius: 10px;
     /* width: 20vmax;   */
+  }
+
+  .reviewCard > p {
+    font: 500 2vmax "Roboto";
+  }
+
+  .reviewCard > span {
+    font: 500 1.5vmax "Roboto";
   }
 }

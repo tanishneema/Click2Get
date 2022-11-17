@@ -67,7 +67,7 @@
 }
 
 .productCard {
-  width: 14vmax;
+  width: 15vmax;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -75,10 +75,11 @@
   margin: 2vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
+  justify-content: flex-end;
 }
 
 .productCard > img {
-  width: 14vmax;
+  width: 15vmax;
 }
 
 .productCard > div {
@@ -115,7 +116,7 @@
 @media screen and (max-width: 600px) {
   .productCard {
     width: 18vmax;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     margin-top: 0;

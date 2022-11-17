@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import ReactStars from "react-rating-stars-component";
-import profilePng from "../../images/Profile.png"
+import profilePng from "../../images/Profile.png";
+
 const ReviewCard = ({ review }) => {
     const options = {
         edit: false,
@@ -8,7 +9,9 @@ const ReviewCard = ({ review }) => {
         activeColor: "orange",
         value: review.rating,
         size: 25,
-        isHalf: true
+        isHalf: true,
+        readOnly: true,
+        precision: 0.5,
     };
 
     return (

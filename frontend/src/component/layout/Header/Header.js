@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
-import {FaUser,FaSearch,FaShoppingCart} from "react-icons/fa";
+import { FaUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
     return (
@@ -15,14 +15,14 @@ const Header = () => {
             logoHoverSize="10px"
             logoHoverColor="#F05454"
             link1Text="Home"
-            link2Text="Product"
+            link2Text="Products"
             link3Text="Contact"
             link4Text="About"
             link1Url="/"
-            link2Url="/product"
+            link2Url="/products"
             link3Url="/contact"
             link4Url="/about"
-            link1Size="2.5vmax"
+            link1Size="2.25vmax"
             link1Color="#DDDDDD"
             nav1justifyContent="center"
             nav2justifyContent="flex-start"
@@ -39,7 +39,7 @@ const Header = () => {
             profileIcon={true}
             cartIcon={true}
             searchIcon={true}
-            profileIconUrl="/profile"
+            profileIconUrl="/login"
             searchIconUrl="/search"
             cartIconUrl="/cart"
             ProfileIconElement={FaUser}

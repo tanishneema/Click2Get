@@ -3,9 +3,32 @@ const Product = require("../models/productModel");
 const ErrorHandler = require("../utils/errorhandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apiFeatures.js");
+const cloudinary = require('cloudinary');
 
 //Create Product -- ADMIN
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+    let images = [];
+
+    if (typeof req.body.images === "string") {
+        images.push(req.body.images);
+    } else {
+        images = req.body.images;
+    }
+
+    const imagesLinks = [];
+
+    for (let i = 0; i < images.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+            folder: "products",
+        });
+
+        imagesLinks.push({
+            public_id: result.public_id,
+            url: result.secure_url,
+        });
+    }
+
+    req.body.images = imagesLinks;
     req.body.user = req.user.id;
 
     const product = await Product.create(req.body);
@@ -16,22 +39,39 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     })
 });
 
+// Get All Product (Admin)
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+    const products = await Product.find();
+
+    res.status(200).json({
+        success: true,
+        products,
+    });
+});
+
 //Get all products
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-    const resultPerPage = 10;
+    const resultPerPage = 12;
     const productsCount = await Product.countDocuments();
 
     const apiFeature = new ApiFeatures(Product.find(), req.query)
         .search()
         .filter()
-        .pagination(resultPerPage);
 
-    const products = await apiFeature.query;
+
+    let products = await apiFeature.query;
+    let filteredProductsCount = products.length;
+
+    apiFeature.pagination(resultPerPage);
+
+    products = await apiFeature.query.clone();
 
     res.status(200).json({
         success: true,
         products,
-        productsCount
+        productsCount,
+        resultPerPage,
+        filteredProductsCount,
     })
 });
 
@@ -113,6 +153,9 @@ exports.creatProductReview = catchAsyncErrors(async (req, res, next) => {
     });
 
     product.ratings = avg / product.reviews.length;
+
+    if (product.reviews.length === 0)
+        product.ratings = 0
 
     await product.save({ validateBeforeSave: false });
 
