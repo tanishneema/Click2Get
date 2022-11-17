@@ -5,9 +5,10 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 //Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
-    let prod = await Product.findById(req.body.orderItems.product);
-    if (prod.stock <= 0)
-        return next(new ErrorHandler(`Product out of stock`, 400));
+    // let prod = await Product.findById(req.body.orderItems.product);
+    // console.log(prod.stock);
+    // if (prod.stock <= 0)
+    //     return next(new ErrorHandler(`Product out of stock`, 400));
         
     const { shippingInfo,
         orderItems,
@@ -53,11 +54,11 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
 
 //Get Order Details
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
-    const order = await Order.find({ user: req.user._id });
+    const orders = await Order.find({ user: req.user._id });
 
     res.status(200).json({
         success: true,
-        order,
+        orders,
     });
 });
 

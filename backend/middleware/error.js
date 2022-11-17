@@ -14,7 +14,6 @@ module.exports = (err, req, res, next) => {
     if (err.code === 11000) {
         const message = `Duplicate ${Object.keys(err.keyValue)} entered`
         err = new ErrorHandler(message, 400);
-
     }
 
     //Wrong JWT Error
@@ -31,8 +30,6 @@ module.exports = (err, req, res, next) => {
 
     res.status(err.statusCode).json({
         success: false,
-        // error:err.stack,
         message: err.message
     });
 };
-

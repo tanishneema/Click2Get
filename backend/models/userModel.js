@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         minLength: [8, "Password length should be greater than 8 characters."],
         select: false,
     },
-    avtar: {
+    avatar: {
         public_id: {
             type: String,
             required: true
@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "user",
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,

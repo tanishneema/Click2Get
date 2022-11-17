@@ -1,5 +1,3 @@
-// Online Login authenticated user can access specific features.
-
 const ErrorHandler = require("../utils/errorhandler");
 const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require('jsonWebToken');
