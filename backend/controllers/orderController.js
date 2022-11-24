@@ -9,7 +9,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     // console.log(prod.stock);
     // if (prod.stock <= 0)
     //     return next(new ErrorHandler(`Product out of stock`, 400));
-        
+
     const { shippingInfo,
         orderItems,
         paymentInfo,
@@ -91,9 +91,11 @@ exports.updateOrders = catchAsyncErrors(async (req, res, next) => {
     if (order.orderStatus === "Delivered")
         return next(new ErrorHandler(`Product already delivered`, 410));
 
-    order.orderItems.forEach(async (o) => {
-        await updateStock(o.product, o.quantity);
-    });
+    if (req.body.status === "Shipped") {
+        order.orderItems.forEach(async (o) => {
+            await updateStock(o.product, o.quantity);
+        });
+    }
 
     order.orderStatus = req.body.status;
 
