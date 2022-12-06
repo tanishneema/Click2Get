@@ -79,7 +79,7 @@ const NewProduct = () => {
       const reader = new FileReader();
 
       reader.onload = () => {
-        if (reader.readyState === 2) {
+        if (reader.readyState === FileReader.DONE) {
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }
