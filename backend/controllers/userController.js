@@ -76,8 +76,8 @@ exports.forgetPassword = catchAsyncErrors(async (req, res, next) => {
 
     await user.save({ validateBeforeSave: false });
 
-    // const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
-    const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+    const resetPasswordUrl = `${req.protocol}://${req.get("host")}/password/reset/${resetToken}`;
+    // const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
     const message = `Your password has been reset successfully \n\nYour new password token is :- \n\n${resetPasswordUrl}\n\n If you did not request for password change, please Ignore.`;
 
@@ -260,7 +260,7 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     const imageId = user.avatar.public_id;
 
     await cloudinary.v2.uploader.destroy(imageId);
-    
+
     await user.remove();
 
     res.status(200).json({
