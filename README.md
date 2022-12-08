@@ -30,7 +30,7 @@ _fill each blank with your info correctly_
 
 ## Author
 
-I am Tanish Neema, Student of Jaypee University of Enigineering and Technology, Guna, Pursuing my B.Tech. 3rd Year in Computer Science and Engineering, Batch 2020-2024.<br />
+I am Tanish Neema, Student of Jaypee University of Engineering and Technology, Guna, Pursuing my B.Tech. 3rd Year in Computer Science and Engineering, Batch 2020-2024.<br />
 [**Instagram**](https://instagram.com/tanish_neema?igshid=NDk5N2NlZjQ=)<br />
 [**Facebook**](https://www.facebook.com/tan.neema/)<br />
 [**GitHub**](https://github.com/tanishneema)<br />
