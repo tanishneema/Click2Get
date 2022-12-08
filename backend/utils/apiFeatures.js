@@ -4,28 +4,38 @@ class ApiFeatures {
         this.queryStr = queryStr;
     }
 
+    // search() {
+    //     const keyword = this.queryStr.keyword ? {
+    //         "$or": [{
+    //             name: {
+    //                 $regex: this.queryStr.keyword,
+    //                 $options: "i",
+    //             }
+    //         }, {
+    //             description: {
+    //                 $regex: this.queryStr.keyword,
+    //                 $options: "i",
+    //             }
+    //         }, {
+    //             category: {
+    //                 $regex: this.queryStr.keyword,
+    //                 $options: "i",
+    //             }
+    //         }
+    //         ]
+    //     } : {};
+
     search() {
-        const keyword = this.queryStr.keyword ? {
-            "$or": [{
+        const keyword = this.queryStr.keyword
+            ? {
                 name: {
                     $regex: this.queryStr.keyword,
                     $options: "i",
-                }
-            }, {
-                description: {
-                    $regex: this.queryStr.keyword,
-                    $options: "i",
-                }
-            }, {
-                category: {
-                    $regex: this.queryStr.keyword,
-                    $options: "i",
-                }
+                },
             }
-            ]
-        } : {};
+            : {};
 
-        this.query = this.query.find({ ...keyword })
+        this.query = this.query.find({ ...keyword });
         return this;
     }
 
@@ -48,8 +58,8 @@ class ApiFeatures {
     pagination(resultPerPage) {
         const currPage = Number(this.queryStr.page) || 1;
         const skip = resultPerPage * (currPage - 1);
-        
-        this.query=this.query.limit(resultPerPage).skip(skip);
+
+        this.query = this.query.limit(resultPerPage).skip(skip);
         return this;
     }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 import logo from "../../images/logo.png";
-import { Link, NavLink} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TreeView, TreeItem } from "@material-ui/lab";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PostAddIcon from "@material-ui/icons/PostAdd";
