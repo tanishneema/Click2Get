@@ -10,7 +10,7 @@ Hi! I'm Tanish Neema, the creator of the project **CLICK2GET**. If you want to l
 
 ## Env Variables
 
-Make Sure to Create a config.env file in backend/config directory and add appropriate variables in order to use the app.
+Make Sure to Create a config.env file in backend/config directory and add appropriate variables in order to use the app.<br />
 **Essential Variables**<br />
 PORT=<br />
 DB_URI =<br />
